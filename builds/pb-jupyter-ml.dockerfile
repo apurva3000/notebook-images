@@ -29,16 +29,13 @@ RUN echo "upgrade pip and setuptools" \
     && pip --no-cache-dir install --upgrade pip setuptools
 
 RUN echo "Tensorflow" \
-    && pip --no-cache-dir install tensorflow==2.0.0-rc0
+    && pip --no-cache-dir install tensorflow==2.0.0
 
 RUN echo "Scikit-Learn" \
     && pip --no-cache-dir install sklearn
 
-RUN echo "PyTorch" \
-    && pip --no-cache-dir install http://download.pytorch.org/whl/cpu/torch-1.1.0-cp37-cp37m-linux_x86_64.whl
-
-RUN echo "TorchVision" \
-    && pip --no-cache-dir install torchvision
+RUN echo "PyTorch and TorchVision" \
+    && pip install torch==1.4.0+cpu torchvision==0.5.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 
 RUN echo "Xgboost" \
     && pip --no-cache-dir install xgboost
